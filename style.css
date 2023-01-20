@@ -1,0 +1,57 @@
+*{
+   box-sizing: border-box;
+}
+
+body{
+    display: flex; /* fotoğrafı küçülttü ve eşit parçaya getirdi. */
+    align-items: center; /* kutuları ortaladı.*/
+    justify-content: center; /* kutuları ortaya sabitledi. */
+    height: 100vh; /* vh tüm sayfayı kaplasın demektir. height uzunluktur. */
+    margin: 0;
+    overflow: hidden; /* Line kaplamadı. aralarda boşluk bıraktı .yazıların kenarlarında boşluk bıraktı.*/
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    cursor: pointer;
+    flex: 0.5; /* genişliği büyüttük.*/
+    margin: 10px;
+    position: relative; /* iki divin arasında ki boşluğu büyüttük. */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    color: bisque;
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin: 0px;
+    opacity: 0; /* ürünlere tıklatıdığımızda yazının rengi gözükecektir. yazı belirginleşecektir. */
+}
+.panel.active{
+    flex: 5; /*diğer görüntülere göre 5 kat büyetecektir.*/
+}
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.4s ease-in 0.5s;
+    
+}
+@media (max-width: 600px){
+    .container{
+        width: 100vw;
+    }
+    .panel:nth-of-type(4), 
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
